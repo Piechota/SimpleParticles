@@ -21,7 +21,7 @@ static const float3 GSOffsets[] =
 };
 RWBuffer<float> particleData : register(u0);
 RWBuffer<float> particlePosition : register(u1);
-[numthreads(64 * 2, 1, 1)]
+[numthreads(1024, 1, 1)]
 void CS(int3 dispatchThreadID : SV_DISPATCHTHREADID)
 {
 	const int positionOffset = dispatchThreadID.x * 3;

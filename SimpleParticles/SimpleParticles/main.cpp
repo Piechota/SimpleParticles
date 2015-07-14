@@ -124,7 +124,6 @@ bool LoadShaders()
 #endif
 
 	ID3DBlob* shaderBlob;
-
 	g_hr = D3DCompileFromFile(
 		L"../../Shaders/Shaders.hlsl", NULL, NULL, "CS", "cs_5_0",
 		shaderFlags, 0, &shaderBlob, nullptr);
@@ -216,7 +215,7 @@ void Draw()
 
 	g_d3dDeviceContext->IASetVertexBuffers(0, 1, &l_nullBuffer, &vertexStride, &offset);
 	g_d3dDeviceContext->CSSetUnorderedAccessViews(1, 1, &g_d3dVertexView, nullptr);
-	g_d3dDeviceContext->Dispatch(250000, 1, 1);
+	g_d3dDeviceContext->Dispatch(31250, 1, 1);
 
 	g_d3dDeviceContext->CSSetUnorderedAccessViews(1, 1, &l_nullUAV, nullptr);
 	g_d3dDeviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
